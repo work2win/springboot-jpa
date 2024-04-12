@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "company")
+@Access(value=AccessType.FIELD)
 public class Company implements Serializable {
 	
 	@Id
