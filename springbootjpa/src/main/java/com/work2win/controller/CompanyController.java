@@ -51,8 +51,7 @@ public class CompanyController {
 	public Company addCompany(@Valid @RequestBody Company company) {
 		System.out.println(company);
 		return companyRepository.save(company);	
-	}
-	
+	}	 
 	
 	
 	@ResponseStatus(HttpStatus.NO_CONTENT)
@@ -63,7 +62,14 @@ public class CompanyController {
 		
 	}
 	
-	@GetMapping("company/{status}")
+	@GetMapping("companyid/{id}") 
+	 public Company getById(@PathVariable Long id){
+		
+	 return companyRepository.findById(id).orElse(null);
+	  
+	  }
+	
+	@GetMapping("status/{status}")
 	public List<Company> getByStatus(@PathVariable String status){
 		List<Company> comp = companyRepository.getByStatus(status);
 		return comp;
